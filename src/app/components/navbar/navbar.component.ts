@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+appname = 'Montoya';
+// esto nos sirve para saber cuando estamos logueados
+public estalogeado = false ;
+  constructor() {
 
-  constructor() { }
-
+   }
   ngOnInit() {
+
   }
 
 }

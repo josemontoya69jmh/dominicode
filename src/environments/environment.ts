@@ -3,7 +3,18 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebaseConfig: {
+    apiKey: 'AIzaSyBGYkvOxZAPLNx54628kf7bvD_o-cqA8uQ',
+    authDomain: 'dominicode-900c2.firebaseapp.com',
+    databaseURL: 'https://dominicode-900c2.firebaseio.com',
+    projectId: 'dominicode-900c2',
+    storageBucket: 'dominicode-900c2.appspot.com',
+    messagingSenderId: '1033882222440',
+    appId: '1:1033882222440:web:bcda7421b7eee4aece60dd',
+    measurementId: 'G-G9E3XK262T'
+  }
+
 };
 
 /*
