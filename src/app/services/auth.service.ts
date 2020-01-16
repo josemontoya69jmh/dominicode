@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-//import { AngularFireAuth } from '@angular/fire/auth';
-//import { map } from 'rxjs/operators';
-// import { auth } from 'firebase/app';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { map } from 'rxjs/operators';
+import { auth } from 'firebase/app';
 
-//import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 // import { UserInterface } from '../models/user';
 
 @Injectable({
