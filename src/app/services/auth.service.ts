@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { map } from 'rxjs/operators';
-// import { auth } from 'firebase/app';
+import { auth } from 'firebase/app';
 
 // import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 // import { UserInterface } from '../models/user';
@@ -36,10 +36,10 @@ export class AuthService {
   //     .then(credential => this.updateUserData(credential.user))
   // }
 
-  // loginGoogleUser() {
-  //   return this.afsAuth.auth.signInWithPopup(new auth.GoogleAuthProvider())
-  //     .then(credential => this.updateUserData(credential.user))
-  // }
+  loginGoogleUser() {
+    return this.afsAuth.auth.signInWithPopup(new auth.GoogleAuthProvider())
+    //  .then(credential => this.updateUserData(credential.user))
+  }
 
   logoutUser() {
     return this.afsAuth.auth.signOut();
@@ -48,7 +48,9 @@ export class AuthService {
   isAuth() {
     return this.afsAuth.authState.pipe(map(auth => auth));
   }
-
+ onLogout() {
+    this.afsAuth.auth.signOut();
+  }
   // private updateUserData(user) {
   //   const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
   //   const data: UserInterface = {

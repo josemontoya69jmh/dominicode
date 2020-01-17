@@ -15,6 +15,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     // lanzamos la aplicacion al abrir el navegador
     this.getCurrentUser();
+    
   }
 // con esta funcion obserbamos el estado del usuario
   getCurrentUser() {
@@ -29,9 +30,8 @@ export class NavbarComponent implements OnInit {
     });
   }
 
-  onLogout() {
+   onLogout() {
     this.afsAuth.auth.signOut();
   }
-
 
 }
