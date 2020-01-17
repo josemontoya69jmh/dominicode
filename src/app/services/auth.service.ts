@@ -11,6 +11,9 @@ import { auth } from 'firebase/app';
 })
 export class AuthService {
 
+
+
+
   constructor(private afsAuth: AngularFireAuth ) { }
 
   // registerUser(email: string, pass: string) {
