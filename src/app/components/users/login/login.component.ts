@@ -10,10 +10,13 @@ import { AuthService } from '../../../services/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
   // en el constructor metemos el afAuth y el router
   constructor(public afAuth: AngularFireAuth, private router: Router, private authService: AuthService) { }
-  // public email: string = '';
-  // public password: string = '';
+  public email: string = '';
+  public password: string = '';
+
+
   ngOnInit() {
   }
 
@@ -35,6 +38,7 @@ export class LoginComponent implements OnInit {
 
 
   onLogout() {
+    console.log('hola estoy deslogueado');
     this.authService.logoutUser();
   }
   onLoginRedirect(): void {
