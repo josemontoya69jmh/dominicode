@@ -1,7 +1,19 @@
+// MODULOS
+// Estos son los que se instalan por defecto
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+// Este componente es imprescindible para trabajar con ngModule
+import { FormsModule } from '@angular/forms';
+// todas estas import para poder utilizar los metodos de firebase
+// Primero hay que  npm install firebase @angular/fire -S
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+
+
+// COMPONENTES
+// Todo esto son los componentes
 import { AppComponent } from './app.component';
 import { ListBookComponent } from './components/admin/list-book/list-book.component';
 import { DetailsBookComponent } from './components/details-book/details-book.component';
@@ -12,18 +24,19 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { OffersComponent } from './components/offers/offers.component';
 import { LoginComponent } from './components/users/login/login.component';
 import { ProfileComponent } from './components/users/profile/profile.component';
-
-
 import { Page404Component } from './components/page404/page404.component';
 import { RegisterComponent } from './components/users/register/register.component';
-// Este componente es imprescindible para trabajar con ngModule
-import { FormsModule } from '@angular/forms';
+
+
+
+// ---------------------OTROS-----------------------------------
+// para las rutas
+import { AppRoutingModule } from './app-routing.module';
+// inyectamos el documento environment donde tenemos las Key de Firebase
 import { environment } from '../environments/environment';
 
-import { AngularFireModule } from '@angular/fire';
-import { AngularFireDatabaseModule } from '@angular/fire/database';
+// Estos impor son los que en provider  inyectamos a todos lo ts entre ellos al  login.component.ts
 import { AngularFireAuth } from '@angular/fire/auth';
-import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFirestore } from '@angular/fire/firestore';
 
 @NgModule({

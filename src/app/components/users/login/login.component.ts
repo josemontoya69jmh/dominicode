@@ -10,10 +10,10 @@ import { AuthService } from '../../../services/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-// en el constructor metemos el afAuth y el router
+  // en el constructor metemos el afAuth y el router
   constructor(public afAuth: AngularFireAuth, private router: Router, private authService: AuthService) { }
-  public email: string = '';
-  public password: string = '';
+  // public email: string = '';
+  // public password: string = '';
   ngOnInit() {
   }
 
@@ -27,9 +27,9 @@ export class LoginComponent implements OnInit {
   onLoginGoogle() {
     // Con esta funcion nos logeamos y nos redirecciona, hay que meterlo por parametros en el constructor
     // esto nos levanta un popup
-this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
-// nos redirecciona
-this.router.navigate(['admin/list-books']);
+    this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
+    // nos redirecciona
+    this.router.navigate(['admin/list-books']);
 
   }
 
