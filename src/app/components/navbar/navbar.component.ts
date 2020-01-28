@@ -13,21 +13,23 @@ export class NavbarComponent implements OnInit {
   constructor(private authService: AuthService, private afsAuth: AngularFireAuth) { }
   public appname = 'Montoya';
   public estalogueado = false;
+
   ngOnInit() {
-    // lanzamos la aplicacion al abrir el navegador
+    // lanzamos la aplicacion al abrir el navegador y miramos si esta logueado
     this.getCurrentUser();
 
   }
 
 
   // con esta funcion obserbamos el estado del usuario
-  // mediante la funcio que importamos de nuestro servicio vemos si estamos logueados
+  // mediante la funcion que importamos de nuestro servicio vemos si estamos logueado
+  // y rellenamos la variable estalogueado
   getCurrentUser() {
     this.authService.isAuth().subscribe(auth => {
       if (auth) {
 
         this.estalogueado = true;
-        console.log(this.estalogueado);
+        console.log('Usuario logueado');
 
       } else {
         console.log('NOT user logged');

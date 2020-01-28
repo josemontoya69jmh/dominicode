@@ -35,7 +35,7 @@ import { AppRoutingModule } from './app-routing.module';
 // inyectamos el documento environment donde tenemos las Key de Firebase
 import { environment } from '../environments/environment';
 
-// Estos impor son los que en provider  inyectamos a todos lo ts entre ellos al  login.component.ts
+// Estos import son los que en provider  inyectamos a todos lo ts entre ellos al  login.component.ts
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 

@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { DataApiService } from '../../services/data-api.service';
+// import { BookInterface } from '../../models/book';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-modal',
@@ -7,9 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModalComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private dataApi: DataApiService) { }
+// Con esto pasamos variables a
+  @Input() userUid: string;
+  
   ngOnInit() {
+  }
+
+  onSaveBook(bookForm: NgForm): void {
+    if (bookForm.value.id == null) {
+      // New
+      bookForm.value.userUid = this.userUid;
+      this.dataApi.addBook(bookForm.value);
+    } else {
+      // Update
+      this.dataApi.updateBook(bookForm.value);
+    }
+    bookForm.resetForm();
+
   }
 
 }

@@ -11,59 +11,57 @@ import { AuthService } from '../../../services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  // en el constructor metemos el afAuth y el router
+  // en el constructor metemos el afAuth y el router, es decir todos los servicios
   constructor(public afAuth: AngularFireAuth, private router: Router, private authService: AuthService) { }
   // Declaramos las variables
-  email = '';
-  password = '';
+  // email = '';
+  // password = '';
 
-
+ public email = '';
+  public password = '';
   ngOnInit() {
+    // metemos la funcion dentro del OnInit para que se ejecute al cargarse la pagina
     this.getCurrentUser();
   }
-  // para loguearse con email y contrasea
-  onLogin(): void {
-    this.authService.loginEmailUser(this.email, this.password);
-      // .then((res) => {
-      //   this.onLoginRedirect();
-      // }).catch(err => console.log('err', err.message));
 
-    if (this.authService.loginEmailUser(this.email, this.password)) {
-      this.onLoginRedirect();
-    
-    } else {
-      
-      console.log('err.message');
-    }
+
+
+  // para loguearse con email y contrasea
+  onLoginEmailUser(): void {
+    this.authService.loginEmailUser(this.email, this.password)
+      .then((res) => {
+        // Si todo va bien nos mostrara por consola el objeto del usuario
+        console.log('UsuarioOjeto', res);
+        // Esto nos sirve para rediregir
+        this.router.navigate(['admin/list-books']);
+      }).catch(err => console.log('err', err.message));
 
 
 
   }
 
-
+  // -----------------Con esta funcion nos logueamos con goooggle-----------------------------------------
   onLoginGoogle(): void {
     this.authService.loginGoogleUser()
-    if (this.authService.loginGoogleUser()) {
-      // redireccionamo si devuelve true, ojo con tener declarada el canActivate en app-routing-module.ts
-      this.router.navigate(['user/profile']);
-     
-    } else {
-     
-      console.log('ha avido un Error')
-    }
+     .then((res) => {
+       console.log('USUARIO', res );
+       this.router.navigate(['admin/list-books']);
+  })
+     .catch (err => console.log('error', err));
+
+
   }
 
 
-
+  // con esta funcion sabemos si el usuario esta logueado
   getCurrentUser() {
     this.authService.isAuth().subscribe(auth => {
       if (auth) {
-        console.log('user logged');
-        this.authService.estaslogueador = true;
+        console.log(auth.email);
+
       } else {
-        console.log('NOT user logged');
-        this.authService.estaslogueador = false;
-      }
+        console.log('No esta logueado');
+         }
     });
   }
 
@@ -72,7 +70,7 @@ export class LoginComponent implements OnInit {
   //   console.log('hola estoy deslogueado');
   //   this.authService.logoutUser();
   // }
-  onLoginRedirect(): void {
-    this.router.navigate(['admin/list-books']);
-  }
+  // onLoginRedirect(): void {
+
+  // }
 }

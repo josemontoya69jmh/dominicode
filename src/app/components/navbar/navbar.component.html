@@ -14,7 +14,7 @@
       estadologueado {{estalogueado}}
     </ul>
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item"  >
+      <li class="nav-item"  *ngIf="!estalogueado" >
         <a class="nav-link" routerLink="/user/register">Register
         </a>
       </li>
