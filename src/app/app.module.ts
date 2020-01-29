@@ -17,7 +17,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AppComponent } from './app.component';
 import { ListBookComponent } from './components/admin/list-book/list-book.component';
 import { DetailsBookComponent } from './components/details-book/details-book.component';
-import { HeroComponent } from './components/hero/hero.component';
+
 import { HomeComponent } from './components/home/home.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -44,7 +44,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
     AppComponent,
     ListBookComponent,
     DetailsBookComponent,
-    HeroComponent,
+   
     HomeComponent,
     ModalComponent,
     NavbarComponent,

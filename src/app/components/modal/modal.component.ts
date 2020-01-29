@@ -19,8 +19,9 @@ export class ModalComponent implements OnInit {
 
   onSaveBook(bookForm: NgForm): void {
     if (bookForm.value.id == null) {
-      // New
+      // le añade el userUid al objeto
       bookForm.value.userUid = this.userUid;
+      // esto guarda el libro
       this.dataApi.addBook(bookForm.value);
     } else {
       // Update

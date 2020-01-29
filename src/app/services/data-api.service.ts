@@ -14,10 +14,12 @@ export class DataApiService {
   // booksCollection es una variable que llenamos con las propiedades de nuestra interface
   private booksCollection: AngularFirestoreCollection<BookInterface>;
 
-  private books: Observable<BookInterface[]>;
-  // para recuperar un libro
+  books: Observable<BookInterface[]>;
+  // esta variable es para poder manipular los documentos y es gracias AngularFirestoreDocument
+  // Nos hace falta para eliminar y editar, pero no para agregar ni mostrar los item
   private bookDoc: AngularFirestoreDocument<BookInterface>;
-  private book: Observable<BookInterface>;
+
+  book: Observable<BookInterface>;
   // private Usuario: Observable<UserInterface>;
 
 
@@ -79,8 +81,8 @@ export class DataApiService {
   }
   // Modificar
   updateBook(book: BookInterface): void {
-    let idBook = book.id;
-    this.bookDoc = this.afs.doc<BookInterface>(`books/${idBook}`);
+    // let idBook = book.id;
+    this.bookDoc = this.afs.doc<BookInterface>(`books/${book.id}`);
     this.bookDoc.update(book);
   }
   // Borrar

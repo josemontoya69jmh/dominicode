@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+
 import { AngularFireAuth } from '@angular/fire/auth';
 import { map } from 'rxjs/operators';
 import { auth } from 'firebase/app';
@@ -100,9 +101,10 @@ export class AuthService {
         editor: false,
         admin: false
       }
+
     };
     return userRef.set(data, { merge: true });
-    
+
   }
 
 // Este metodo nos recupera el registro usuarios del usuario en cuestion

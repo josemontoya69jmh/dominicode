@@ -3,7 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 // import { auth } from 'firebase/app';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
-
+import { auth } from 'firebase/app';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -42,7 +42,8 @@ export class LoginComponent implements OnInit {
 
   // -----------------Con esta funcion nos logueamos con goooggle-----------------------------------------
   onLoginGoogle(): void {
-    this.authService.loginGoogleUser()
+
+    this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider())
      .then((res) => {
        console.log('USUARIO', res );
        this.router.navigate(['admin/list-books']);
