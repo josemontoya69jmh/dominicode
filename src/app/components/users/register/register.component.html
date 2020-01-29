@@ -31,6 +31,7 @@
 
                 <!-- Esto es la barra de progreso    -->
                 <div class="progress">
+
                   <div [style.visibility]="(uploadPercent == 0) ? 'hidden' : 'visible'"
                     class="progress-bar progress-bar-striped bg-success" role="progressbar"
                     [style.width]="(uploadPercent | async) +'%'">
@@ -46,23 +47,25 @@
                 <button *ngIf="urlImage | async; else btnDisabled" type="submit"
                   class="btn btn-lg btn-primary btn-block">Register</button>
                 <ng-template #btnDisabled>
-                  <button type="submit" disabled = true class="btn btn-lg btn-secondary btn-block">Registrate</button>
+                  <button type="submit" disabled=true class="btn btn-lg btn-secondary btn-block">Registrate</button>
                 </ng-template>
 
 
 
                 <div class="form-group">
-                  <a routerLink="/user/login" class="form-control login-user">Do you have account?</a>
+                  <a routerLink="/user/login" class="form-control login-user">¿Ya tienes cuenta?</a>
                 </div>
                 <div class="form-group">
 
-                  <button class="btn btn-block btn-social btn-google" (click)="onLoginGoogle()">
-                    <span class="fa fa-google"></span>
-                    GOOGLE
-                  </button>
+
                 </div>
               </form>
+<!-- IMPORTANTE que los botones de google esten fuera de el form -->
 
+              <button class="btn btn-block btn-social btn-google" (click)="onLoginGoogle()">
+                <span class="fa fa-google"></span>
+                GOOGLE
+              </button>
             </div>
           </div>
         </div>

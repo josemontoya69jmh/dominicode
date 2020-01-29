@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   // email = '';
   // password = '';
 
- public email = '';
+  public email = '';
   public password = '';
   ngOnInit() {
     // metemos la funcion dentro del OnInit para que se ejecute al cargarse la pagina
@@ -41,17 +41,35 @@ export class LoginComponent implements OnInit {
   }
 
   // -----------------Con esta funcion nos logueamos con goooggle-----------------------------------------
+
+
+
   onLoginGoogle(): void {
-
-    this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider())
-     .then((res) => {
-       console.log('USUARIO', res );
-       this.router.navigate(['admin/list-books']);
-  })
-     .catch (err => console.log('error', err));
-
-
+    this.authService.loginGoogleUser()
+      .then((res) => {
+        console.log('objetodegoogle', res);
+        this.router.navigate(['admin/list-books']);
+      }).catch(err => console.log('err', err.message));
   }
+
+
+
+
+  // onLoginGoogle(): void {
+
+  //   this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider())
+  //    .then((res) => {
+  //      console.log('USUARIO', res );
+  //      this.router.navigate(['admin/list-books']);
+  // })
+  //    .catch (err => console.log('error', err));
+
+
+  // }
+
+
+
+
 
 
   // con esta funcion sabemos si el usuario esta logueado
@@ -62,7 +80,7 @@ export class LoginComponent implements OnInit {
 
       } else {
         console.log('No esta logueado');
-         }
+      }
     });
   }
 
