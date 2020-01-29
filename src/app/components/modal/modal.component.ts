@@ -11,10 +11,11 @@ import { NgForm } from '@angular/forms';
 export class ModalComponent implements OnInit {
 
   constructor(private dataApi: DataApiService) { 
-
+//  ESTO ES UNA PRUEBA GITHUB
   }
   // OJO comprobar si es estatico o no
   // https://www.youtube.com/watch?v=AyuIaJTqBLs&t=568s
+  // ElementRef es cuando hace referencia a un html
   @ViewChild('btnClose', { static: true}) btnClose: ElementRef;
 // Con esto recuperamos la variable pasada al modal
   @Input() userUid: string;
